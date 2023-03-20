@@ -1,15 +1,11 @@
-package dostavka_tsvetov.test;
+package dostavka_tsvetov.LK.test;
 
-import dostavka_tsvetov.data.DataHelper;
-import dostavka_tsvetov.page.ForgottenPasswordPage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
+import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.LK.page.ForgottenPasswordPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ForgottenPassPageTest {

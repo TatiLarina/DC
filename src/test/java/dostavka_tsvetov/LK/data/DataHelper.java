@@ -1,7 +1,6 @@
-package dostavka_tsvetov.data;
+package dostavka_tsvetov.LK.data;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.PhoneNumber;
 import lombok.Value;
 
 import java.util.Locale;

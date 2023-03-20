@@ -1,4 +1,4 @@
-package dostavka_tsvetov.page;
+package dostavka_tsvetov.LK.page;
 
 import com.codeborne.selenide.SelenideElement;
 

@@ -1,9 +1,8 @@
-package dostavka_tsvetov.test;
+package dostavka_tsvetov.LK.test;
 
 import com.github.javafaker.Faker;
-import dostavka_tsvetov.data.DataHelper;
-import dostavka_tsvetov.page.LoginPage;
-import org.junit.jupiter.api.AfterEach;
+import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.LK.page.LoginPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

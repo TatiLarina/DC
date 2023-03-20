@@ -1,7 +1,7 @@
-package dostavka_tsvetov.test;
+package dostavka_tsvetov.LK.test;
 
-import dostavka_tsvetov.data.DataHelper;
-import dostavka_tsvetov.page.RegistrationPage;
+import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.LK.page.RegistrationPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -47,4 +47,47 @@ public class RegistrationPageTest {
         registrationPage.agreeCheckBoxClick();
         $("#submit_register").shouldBe(visible);
     }
+
+    //2.4.1 Валидация поля имя и телефон
+    @Test
+    void invalidNamee() {
+        var registrationPage = new RegistrationPage();
+        String name = "123!.";
+        registrationPage.inputName(name);
+        String expected = "";
+        String actual = $("#input-firstname").getText().trim();
+        assertEquals(expected, actual);
+
+    }
+
+    //2.4.2 Валидация поля телефон
+    @Test
+    void invalidPhone() {
+        var registrationPage = new RegistrationPage();
+        String phone = "qwerty,.фыва";
+        registrationPage.inputPhone(phone);
+        String expected = "";
+        String actual = $("#input-telephone").getText().trim();
+        assertEquals(expected, actual);
+    }
+
+    // 2.5 Валидация поля емайл (доработать)
+    @Test
+    void invalidEmail() {
+        var registrationPage = new RegistrationPage();
+        String password = "123456";
+        String email = "i@ya.";
+        registrationPage.invalidEmail(email, password);
+        email = "@ya.ru";
+        registrationPage.invalidEmail(email, password);
+        email = "iya.ru";
+        registrationPage.invalidEmail(email, password);
+        email = ".ru";
+        registrationPage.invalidEmail(email, password);
+        email = "";
+        registrationPage.invalidEmail(email, password);
+        email = "test";
+        registrationPage.invalidEmail(email, password);
+    }
+
 }

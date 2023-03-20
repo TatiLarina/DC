@@ -1,7 +1,7 @@
-package dostavka_tsvetov.page;
+package dostavka_tsvetov.LK.page;
 
 import com.codeborne.selenide.SelenideElement;
-import dostavka_tsvetov.data.DataHelper;
+import dostavka_tsvetov.LK.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
