@@ -26,10 +26,9 @@ public class ProductPage {
         nameField.setValue(name);
         phoneField.setValue(phone);
         buttonSendOrder.click();
-        successText.shouldBe(visible);
-        buttonGood.click();
-        successText.shouldBe(disabled);
     }
+
+
     public void clickHeart(int number) {
         wishlistHeart.get(number).click();
     }

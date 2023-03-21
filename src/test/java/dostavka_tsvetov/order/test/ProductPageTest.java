@@ -5,8 +5,9 @@ import dostavka_tsvetov.order.page.ProductPage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductPageTest {
 
@@ -15,11 +16,54 @@ public class ProductPageTest {
         DataHelper.openOProductPage();
     }
 
-    // Купить в один клик. Валидные данные
+    // Купить в один клик
+    @Test
+    void buyOneClickEntryField() {
+        var productPage = new ProductPage();
+        productPage.buyOneClick("", "");
+        $(".modal_form__input.name.error").shouldBe(visible);
+        $(".modal_form__input.telephone.error").shouldBe(visible);
+    }
+
+    @Test
+    void buyOneClickEntryFieldPhone() {
+        var productPage = new ProductPage();
+        productPage.buyOneClick("Тестовый заказ", "");
+        $(".modal_form__input.telephone.error").shouldBe(visible);
+    }
+
+    @Test
+    void buyOneClickEntryFieldName() {
+        var productPage = new ProductPage();
+        productPage.buyOneClick("", "0000000000");
+        $(".modal_form__input.name.error").shouldBe(visible);
+    }
+
     @Test
     void buyOneClickSuccess() {
         var productPage = new ProductPage();
         productPage.buyOneClick("Тестовый заказ", "0000000000");
+        $(".oneclick_success_block").shouldBe(visible);
+        $(".product_information_buttons__buyOneClick__close").click();
+        $(".modalOnClick").shouldBe(hidden);
+    }
+
+    // Добавление в корзину
+    @Test
+    void addToCart() {
+        $(".product_information_buttons__addCart").click();
+
+    }
+
+    // Увеличение числа товаров
+    @Test
+    void countProductUp() {
+        var productPage = new ProductPage();
+        int count = Integer.parseInt($(".add_basket__input").getText());
+        $(".count_prod__plus").click();
+        int expected = count+1;
+        int actual = Integer.parseInt($(".add_basket__input").getText());
+        assertEquals(expected, actual);
     }
 
     // Добавление в избранное
@@ -30,4 +74,17 @@ public class ProductPageTest {
         $$(".wishlist_tov_active").get(0).shouldBe(visible);
         $$(".wishlist_tov_active").get(1).shouldBe(visible);
     }
+
+    // Переход на Правила возврата
+    @Test
+    void returnPolicy() {
+        var productPage = new ProductPage();
+        $$(".utp_item").get(1).click();
+        switchTo().window(1);
+        String expected = "Гарантии";
+        String actual = $(".assurance_header__h1").getText().trim();
+        assertEquals(expected, actual);
+    }
+
+
 }

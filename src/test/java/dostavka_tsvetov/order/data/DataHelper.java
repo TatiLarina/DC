@@ -9,7 +9,7 @@ public class DataHelper {
 
     // Методы открытия различных страниц
     public static void openMainPage() {
-        open("https://https://www.dostavka-tsvetov.com/");
+        open("https://www.dostavka-tsvetov.com/");
     }
 
     public static void openOrderPage() {
