@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1cdf899-2714-4dd9-9d5c-a87f6003912a" name="Changes" comment="SelecteRecepientTest">
-      <change afterPath="$PROJECT_DIR$/src/appveyor.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/PaymentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/LK/data/DataHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/LK/data/DataHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/ProductPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/ProductPageTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/SelecteRecepientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/SelecteRecepientTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="f1cdf899-2714-4dd9-9d5c-a87f6003912a" name="Changes" comment="CI" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679402784466</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="CI">
+      <created>1680012146677</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680012146677</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -246,6 +246,7 @@
     <MESSAGE value="order_tests" />
     <MESSAGE value="promocodeTest" />
     <MESSAGE value="SelecteRecepientTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="SelecteRecepientTest" />
+    <MESSAGE value="CI" />
+    <option name="LAST_COMMIT_MESSAGE" value="CI" />
   </component>
 </project>
