@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f1cdf899-2714-4dd9-9d5c-a87f6003912a" name="Changes" comment="promocodeTest">
-      <change afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/selecteRecepientTest.java" afterDir="false" />
+    <list default="true" id="f1cdf899-2714-4dd9-9d5c-a87f6003912a" name="Changes" comment="SelecteRecepientTest">
+      <change afterPath="$PROJECT_DIR$/src/appveyor.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/PaymentTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/LK/data/DataHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/LK/data/DataHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/ProductPageTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/ProductPageTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/SelecteRecepientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dostavka_tsvetov/order/test/SelecteRecepientTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +56,8 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.selecteRecepientTest">
-    <configuration name="PromocodeTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.SelecteRecepientTest">
+    <configuration name="PaymentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -66,7 +70,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dostavka_tsvetov.order.test.PromocodeTest&quot;" />
+            <option value="&quot;dostavka_tsvetov.order.test.PaymentTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -76,7 +80,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="selecteRecepientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PaymentTest.paymentWithCash" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -89,7 +93,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dostavka_tsvetov.order.test.selecteRecepientTest&quot;" />
+            <option value="&quot;dostavka_tsvetov.order.test.PaymentTest.paymentWithCash&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -99,7 +103,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="selecteRecepientTest.anotherPeople" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProductPageTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -112,7 +116,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dostavka_tsvetov.order.test.selecteRecepientTest.anotherPeople&quot;" />
+            <option value="&quot;dostavka_tsvetov.order.test.ProductPageTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -122,7 +126,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="selecteRecepientTest.myself" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ProductPageTest.addWishlist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -135,7 +139,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dostavka_tsvetov.order.test.selecteRecepientTest.myself&quot;" />
+            <option value="&quot;dostavka_tsvetov.order.test.ProductPageTest.addWishlist&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -145,7 +149,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="selecteRecepientTest.switching" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SelecteRecepientTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -158,7 +162,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dostavka_tsvetov.order.test.selecteRecepientTest.switching&quot;" />
+            <option value="&quot;dostavka_tsvetov.order.test.SelecteRecepientTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -170,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.selecteRecepientTest" />
-        <item itemvalue="Gradle.selecteRecepientTest.switching" />
-        <item itemvalue="Gradle.selecteRecepientTest.myself" />
-        <item itemvalue="Gradle.selecteRecepientTest.anotherPeople" />
-        <item itemvalue="Gradle.PromocodeTest" />
+        <item itemvalue="Gradle.SelecteRecepientTest" />
+        <item itemvalue="Gradle.ProductPageTest.addWishlist" />
+        <item itemvalue="Gradle.ProductPageTest" />
+        <item itemvalue="Gradle.PaymentTest.paymentWithCash" />
+        <item itemvalue="Gradle.PaymentTest" />
       </list>
     </recent_temporary>
   </component>
@@ -215,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679400934812</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="SelecteRecepientTest">
+      <created>1679402784466</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679402784466</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -234,6 +245,7 @@
     <MESSAGE value="tests" />
     <MESSAGE value="order_tests" />
     <MESSAGE value="promocodeTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="promocodeTest" />
+    <MESSAGE value="SelecteRecepientTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="SelecteRecepientTest" />
   </component>
 </project>

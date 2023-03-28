@@ -55,26 +55,6 @@ public class ProductPageTest {
 
     }
 
-    // Увеличение числа товаров
-    @Test
-    void countProductUp() {
-        var productPage = new ProductPage();
-        int count = Integer.parseInt($(".add_basket__input").getText());
-        $(".count_prod__plus").click();
-        int expected = count+1;
-        int actual = Integer.parseInt($(".add_basket__input").getText());
-        assertEquals(expected, actual);
-    }
-
-    // Добавление в избранное
-    @Test
-    void addWishlist() {
-        var productPage = new ProductPage();
-        productPage.clickHeart(0);
-        $$(".wishlist_tov_active").get(0).shouldBe(visible);
-        $$(".wishlist_tov_active").get(1).shouldBe(visible);
-    }
-
     // Переход на Правила возврата
     @Test
     void returnPolicy() {

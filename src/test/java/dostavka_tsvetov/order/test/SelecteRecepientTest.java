@@ -16,7 +16,7 @@ public class SelecteRecepientTest {
     static void before() {
         DataHelper.openMainPage();
         var mainPage = new MainPage();
-        mainPage.addToCart(1);
+        mainPage.addToCart(2);
         open("https://www.dostavka-tsvetov.com/index.php?route=checkout/simple");
     }
 

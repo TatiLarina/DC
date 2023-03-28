@@ -14,15 +14,15 @@ public class DataHelper {
 
     // Методы открытия различных страниц
     public static void openLoginPage() {
-        open("https://development.dostavka-tsvetov.com/index.php?route=account/login");
+        open("https://dostavka-tsvetov.com/index.php?route=account/login");
     }
 
     public static void openRegistrationPage() {
-        open("https://development.dostavka-tsvetov.com/index.php?route=account/register");
+        open("https://dostavka-tsvetov.com/index.php?route=account/register");
     }
 
     public static void openForgottenPasswordPage() {
-        open("https://development.dostavka-tsvetov.com/index.php?route=account/forgotten");
+        open("https://dostavka-tsvetov.com/index.php?route=account/forgotten");
     }
 
     // Пара емайл-пароль
