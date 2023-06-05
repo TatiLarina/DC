@@ -1,7 +1,11 @@
 package dostavka_tsvetov.LK.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import dostavka_tsvetov.LK.data.DataHelper;
 import dostavka_tsvetov.LK.page.RegistrationPage;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,11 +17,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegistrationPageTest {
 
+    @BeforeAll
+    static void setup() {
+        SelenideLogger.addListener("allure", new AllureSelenide()
+                .screenshots(true).savePageSource(true));
+    }
     @BeforeEach
     void before() {
         DataHelper.openRegistrationPage();
     }
 
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
+    }
     //2.1 Регистрация с валидными данными
     @Test
     void successRegistration() {

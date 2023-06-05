@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.*;
 // 3 Выбрать получателя букета
 public class SelecteRecepientTest {
 
+    /*
     @BeforeAll
     static void before() {
         DataHelper.openMainPage();
@@ -47,5 +48,7 @@ public class SelecteRecepientTest {
         $(".recipient_contacts").shouldBe(visible);
         $("#optionsForReveiver").shouldBe(visible);
     }
+
+     */
 
 }

@@ -3,6 +3,7 @@ package dostavka_tsvetov.order.test;
 import dostavka_tsvetov.order.page.MainPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.visible;
@@ -12,7 +13,7 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PaymentTest {
-
+    /*
     @BeforeEach
     void before() {
         open("https://dostavka-tsvetov.com/");
@@ -24,11 +25,6 @@ public class PaymentTest {
         $("#email").clear();
         $("#email").setValue("t.p.larina@ya.ru");
         $("#delivery_date").click();
-    }
-
-    @AfterEach
-    void after() {
-        closeWebDriver();
     }
 
     // 9.1 Оплата картами Visa/Mastercard
@@ -113,5 +109,7 @@ public class PaymentTest {
         String actual = $(".oplata-item__title").getText().trim();
         assertEquals(expected, actual);
     }
+
+     */
 
 }

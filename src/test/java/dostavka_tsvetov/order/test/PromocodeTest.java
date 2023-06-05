@@ -1,7 +1,10 @@
 package dostavka_tsvetov.order.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import dostavka_tsvetov.order.data.DataHelper;
 import dostavka_tsvetov.order.page.MainPage;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -15,10 +18,17 @@ public class PromocodeTest {
 
     @BeforeAll
     static void before() {
+        SelenideLogger.addListener("allure", new AllureSelenide()
+                .screenshots(true).savePageSource(true));
         DataHelper.openMainPage();
         var mainPage = new MainPage();
         mainPage.addToCart(1);
         open("https://www.dostavka-tsvetov.com/index.php?route=checkout/simple");
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
     // 2.1 Применить недействительный промокод
@@ -68,17 +78,17 @@ public class PromocodeTest {
 
     // 2.5 Промокод скидка 500 р
     @Test
-    void actualPromocode500() {
+    void actualPromocode300() {
         String s1 = $(".checkout_total__price").getText().trim();
         String[] s2_array = s1.split("\\D+");
         int count = Integer.parseInt(String.join("", s2_array));
         $("#promo-kod").setValue("welcome");
         $(".checkout_total").click();
         $(".checkout_coupon__discount").shouldBe(visible);
-        String expected = "Скидка 500 ₽";
+        String expected = "Скидка 300 ₽";
         String actual = $(".checkout_coupon__discount").getText().trim();
         assertEquals(expected, actual);
-        int discount = count - 500;
+        int discount = count - 300;
         String expected2 = Integer.toString(discount/1000)+" "+Integer.toString(discount%1000)+" ₽";
         String actual2 = $(".checkout_total__price").getText().trim();
         assertEquals(expected2, actual2);

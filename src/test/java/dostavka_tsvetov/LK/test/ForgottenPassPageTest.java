@@ -1,7 +1,9 @@
 package dostavka_tsvetov.LK.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import dostavka_tsvetov.LK.data.DataHelper;
 import dostavka_tsvetov.LK.page.ForgottenPasswordPage;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,6 +15,11 @@ public class ForgottenPassPageTest {
     @BeforeEach
     void before() {
         DataHelper.openForgottenPasswordPage();
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
     // 3.2 Ввод незарегистрированного емайла (или любого другого текста)

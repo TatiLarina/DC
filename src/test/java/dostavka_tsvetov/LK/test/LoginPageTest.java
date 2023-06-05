@@ -1,24 +1,37 @@
 package dostavka_tsvetov.LK.test;
 
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import dostavka_tsvetov.LK.data.DataHelper;
 import dostavka_tsvetov.LK.page.LoginPage;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Locale;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginPageTest {
 
-    private static Faker faker = new Faker(new Locale("en"));
+    private static final Faker faker = new Faker(new Locale("en"));
 
+    @BeforeAll
+    static void setup() {
+        SelenideLogger.addListener("allure", new AllureSelenide()
+                .screenshots(true).savePageSource(true));
+    }
     @BeforeEach
     void before() {
         DataHelper.openLoginPage();
+    }
+
+    @AfterAll
+    static void tearDownAll() {
+        SelenideLogger.removeListener("allure");
     }
 
     // 3.1 Ввод зарегистрированной пары емайл-пароль

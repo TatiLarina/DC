@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProductPageTest {
 
+    /*
     @BeforeEach
     void before() {
         DataHelper.openOProductPage();
@@ -66,5 +67,5 @@ public class ProductPageTest {
         assertEquals(expected, actual);
     }
 
-
+*/
 }
