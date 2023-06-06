@@ -69,7 +69,7 @@ public class PromocodeTest {
     // 2.4 Промокод бесплатный подарок
 
     @Test
-    @DisplayName("2.5 Промокод скидка 500 р")
+    @DisplayName("2.5 Промокод скидка 300 р")
     void actualPromocode300() {
         int count = orderPage.setTotalPrice();
         orderPage.setPromocodeField("welcome");

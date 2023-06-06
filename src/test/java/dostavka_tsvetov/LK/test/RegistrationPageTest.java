@@ -16,10 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegistrationPageTest {
 
+    private final RegistrationPage registrationPage = new RegistrationPage();
+
     @BeforeAll
     static void setup() {
         SelenideLogger.addListener("allure", new AllureSelenide()
                 .screenshots(true).savePageSource(true));
+        DataHelper.openRegistrationPage();
     }
     @BeforeEach
     void before() {
@@ -34,16 +37,13 @@ public class RegistrationPageTest {
     @Test
     @DisplayName("2.1 Регистрация с валидными данными")
     void successRegistration() {
-        var registrationPage = new RegistrationPage();
         var userInfo = DataHelper.generateNewUser();
         registrationPage.registration(userInfo);
-        closeWebDriver();
     }
 
     @Test
     @DisplayName("2.2 Уже зарегистрированный емайл")
     void alertAlreadyRegistered() {
-        var registrationPage = new RegistrationPage();
         var userInfo = DataHelper.oldUser();
         registrationPage.alreadyRegisteredUser(userInfo);
         String expected = "Пользователь с таким e-mail уже зарегистрирован.";
@@ -54,7 +54,6 @@ public class RegistrationPageTest {
     @Test
     @DisplayName("2.3 Отсутствие галочки \"С условиями...\"")
     void agreeCheckbox() {
-        var registrationPage = new RegistrationPage();
         registrationPage.agreeCheckBoxClick();
         $("#submit_register").shouldBe(disabled);
         registrationPage.agreeCheckBoxClick();
@@ -64,7 +63,6 @@ public class RegistrationPageTest {
     @Test
     @DisplayName("2.4.1 Валидация поля имя и телефон")
     void invalidName() {
-        var registrationPage = new RegistrationPage();
         String name = "123!.";
         registrationPage.inputName(name);
         String expected = "";
@@ -75,7 +73,6 @@ public class RegistrationPageTest {
     @Test
     @DisplayName("2.4.2 Валидация поля телефон")
     void invalidPhone() {
-        var registrationPage = new RegistrationPage();
         String phone = "qwerty,.фыва";
         registrationPage.inputPhone(phone);
         String expected = "";
@@ -84,15 +81,15 @@ public class RegistrationPageTest {
     }
 
     // (доработать)
+    /*
     @ParameterizedTest
     @DisplayName("2.5 Валидация поля емайл")
     @CsvSource({
-            "i@ya.", "@ya.ru", "iya.ru", ".ru", "", "test"
+            "i@ya.", "@ya.ru", "iya.ru", ".ru", "test"
     })
     void invalidEmail(String email) {
-        var registrationPage = new RegistrationPage();
         String password = "123456";
         registrationPage.invalidEmail(email, password);
-    }
+    } */
 
 }

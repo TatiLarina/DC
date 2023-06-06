@@ -5,10 +5,7 @@ import com.github.javafaker.Faker;
 import dostavka_tsvetov.data.DataHelper;
 import dostavka_tsvetov.LK.page.LoginPage;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Locale;
 
@@ -34,8 +31,8 @@ public class LoginPageTest {
         SelenideLogger.removeListener("allure");
     }
 
-    // 3.1 Ввод зарегистрированной пары емайл-пароль
     @Test
+    @DisplayName("3.1 Ввод зарегистрированной пары емайл-пароль")
     void validLogin() {
         var loginPage = new LoginPage();
         var authInfo = DataHelper.getAuthInfo();
@@ -43,8 +40,8 @@ public class LoginPageTest {
         closeWebDriver();
     }
 
-    // 3.2 Ввод несуществующей пары емайл-пароль
     @Test
+    @DisplayName("3.2 Ввод несуществующей пары емайл-пароль")
     void wrongLogin() {
         var loginPage = new LoginPage();
         var authInfo = DataHelper.generateRandomUser();
@@ -70,16 +67,16 @@ public class LoginPageTest {
         loginPage.invalidEmail(email, password);
     }
 */
-    // 3.4 Предупреждение "Введите пароль"
     @Test
+    @DisplayName("3.4 Предупреждение \"Введите пароль\"")
     void ifNotPassword() {
         var loginPage = new LoginPage();
         String email = faker.internet().emailAddress();
         loginPage.notPassword(email);
     }
 
-    // 3.5 Переход на страницу регистрации
     @Test
+    @DisplayName("3.5 Переход на страницу регистрации")
     void clickRegistration() {
         var loginPage = new LoginPage();
         loginPage.newRegistration();
@@ -88,8 +85,8 @@ public class LoginPageTest {
         assertEquals(expected, actual);
     }
 
-    // 3.6 Переход на страницу восстановления пароля
     @Test
+    @DisplayName("3.6 Переход на страницу восстановления пароля")
     void clickForgetPassword() {
         var loginPage = new LoginPage();
         loginPage.forgetPass();
@@ -97,7 +94,5 @@ public class LoginPageTest {
         String actual = $(".lk_header__h2").getText().trim();
         assertEquals(expected, actual);
     }
-
-
 
 }

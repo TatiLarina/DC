@@ -3,14 +3,19 @@ package dostavka_tsvetov.LK.test;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import dostavka_tsvetov.data.DataHelper;
 import dostavka_tsvetov.LK.page.ForgottenPasswordPage;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.$;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ForgottenPassPageTest {
+
+    @BeforeAll
+    static void setup() {
+        SelenideLogger.addListener("allure", new AllureSelenide()
+                .screenshots(true).savePageSource(true));
+    }
 
     @BeforeEach
     void before() {
@@ -22,8 +27,8 @@ public class ForgottenPassPageTest {
         SelenideLogger.removeListener("allure");
     }
 
-    // 3.2 Ввод незарегистрированного емайла (или любого другого текста)
     @Test
+    @DisplayName("3.2 Ввод незарегистрированного емайла (или любого другого текста)")
     void wrongEmail() {
         var forgottenPassPage = new ForgottenPasswordPage();
         forgottenPassPage.invalidEmail("test");
@@ -32,8 +37,8 @@ public class ForgottenPassPageTest {
         assertEquals(expected, actual);
     }
 
-    // 3.3 Отправка пустого поля емайл
     @Test
+    @DisplayName("3.3 Отправка пустого поля емайл")
     void entryEmail() {
         var forgottenPassPage = new ForgottenPasswordPage();
         forgottenPassPage.entryEmail();
@@ -42,9 +47,8 @@ public class ForgottenPassPageTest {
         assertEquals(expected, actual);
     }
 
-    // 3.1 Восстановление пароля зарегистированного пользователя
-    // После выполнения проверить, что на указанную в тесте почту приходит новый пароль!
     @Test
+    @DisplayName("3.1 Восстановление пароля зарегистированного пользователя")
     void validEmail() {
         var forgottenPassPage = new ForgottenPasswordPage();
         forgottenPassPage.validEmail("t.p.larina@ya.ru");
