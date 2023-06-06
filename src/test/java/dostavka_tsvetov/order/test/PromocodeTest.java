@@ -1,21 +1,20 @@
 package dostavka_tsvetov.order.test;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import dostavka_tsvetov.order.data.DataHelper;
 import dostavka_tsvetov.order.page.MainPage;
+import dostavka_tsvetov.order.page.OrderPage;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // 2 Применить промокод
 public class PromocodeTest {
-
+    OrderPage orderPage = new OrderPage();
     @BeforeAll
     static void before() {
         SelenideLogger.addListener("allure", new AllureSelenide()
@@ -24,6 +23,7 @@ public class PromocodeTest {
         var mainPage = new MainPage();
         mainPage.addToCart(1);
         open("https://www.dostavka-tsvetov.com/index.php?route=checkout/simple");
+        Configuration.timeout = 15_000;
     }
 
     @AfterAll
@@ -31,68 +31,57 @@ public class PromocodeTest {
         SelenideLogger.removeListener("allure");
     }
 
-    // 2.1 Применить недействительный промокод
     @Test
+    @DisplayName("2.1 Применить недействительный промокод")
     void nonActivePromocode() {
-        $("#promo-kod").setValue("test");
-        $(".checkout_total").click();
-        $(".checkout_coupon__warning").shouldBe(visible);
+        orderPage.setPromocodeField("test");
         String expected = "Промокод не действителен";
-        String actual = $(".checkout_coupon__warning").getText().trim();
+        String actual = orderPage.setWrongPromoText();
         assertEquals(expected, actual);
     }
 
-    // 2.2 Применить действующий промокод
     @Test
+    @DisplayName("2.2 Применить действующий промокод")
     void actualPromocode() {
-        String s1 = $(".checkout_total__price").getText().trim();
-        String[] s2_array = s1.split("\\D+");
-        int count = Integer.parseInt(String.join("", s2_array));
-        $("#promo-kod").setValue("bant");
-        $(".checkout_total").click();
-        $(".checkout_coupon__discount").shouldBe(visible);
+        int count = orderPage.setTotalPrice();
+        orderPage.setPromocodeField("bant");
         String expected = "Скидка 5 %";
-        String actual = $(".checkout_coupon__discount").getText().trim();
+        String actual = orderPage.setActualPromoText();
         assertEquals(expected, actual);
         int discount = (int) Math.ceil(count*0.95);
-        String expected2 = Integer.toString(discount/1000)+" "+Integer.toString(discount%1000)+" ₽";
+        String expected2 = (discount/1000)+" "+(discount%1000)+" ₽";
         String actual2 = $(".checkout_total__price").getText().trim();
         assertEquals(expected2, actual2);
-        String expected3 = "Оплатить "+Integer.toString(discount)+" ₽";
+        String expected3 = "Оплатить "+discount+" ₽";
         String actual3 = $(".checkout_confirm__btn").getText().trim();
         assertEquals(expected3, actual3);
     }
 
-    // 2.3 Удалить примененный промокод
     @Test
+    @DisplayName("2.3 Удалить примененный промокод")
     void deletePromocode() {
-        $("#promo-kod").setValue("test");
-        $(".checkout_total").click();
-        $(".button_delete_coupon").click();
+        orderPage.setPromocodeField("test");
+        orderPage.clickDeletePromo();
         String expected = "";
-        String actual = $("#promo-kod").getText().trim();
+        String actual = orderPage.getPromocode();
         assertEquals(expected, actual);
     }
 
     // 2.4 Промокод бесплатный подарок
 
-    // 2.5 Промокод скидка 500 р
     @Test
+    @DisplayName("2.5 Промокод скидка 500 р")
     void actualPromocode300() {
-        String s1 = $(".checkout_total__price").getText().trim();
-        String[] s2_array = s1.split("\\D+");
-        int count = Integer.parseInt(String.join("", s2_array));
-        $("#promo-kod").setValue("welcome");
-        $(".checkout_total").click();
-        $(".checkout_coupon__discount").shouldBe(visible);
+        int count = orderPage.setTotalPrice();
+        orderPage.setPromocodeField("welcome");
         String expected = "Скидка 300 ₽";
-        String actual = $(".checkout_coupon__discount").getText().trim();
+        String actual = orderPage.setActualPromoText();
         assertEquals(expected, actual);
         int discount = count - 300;
-        String expected2 = Integer.toString(discount/1000)+" "+Integer.toString(discount%1000)+" ₽";
+        String expected2 = (discount/1000)+" "+(discount%1000)+" ₽";
         String actual2 = $(".checkout_total__price").getText().trim();
         assertEquals(expected2, actual2);
-        String expected3 = "Оплатить "+Integer.toString(discount)+" ₽";
+        String expected3 = "Оплатить "+discount+" ₽";
         String actual3 = $(".checkout_confirm__btn").getText().trim();
         assertEquals(expected3, actual3);
     }

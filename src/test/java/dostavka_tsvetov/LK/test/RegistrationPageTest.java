@@ -4,10 +4,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import dostavka_tsvetov.LK.data.DataHelper;
 import dostavka_tsvetov.LK.page.RegistrationPage;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.codeborne.selenide.Condition.disabled;
 import static com.codeborne.selenide.Condition.visible;
@@ -31,8 +30,9 @@ public class RegistrationPageTest {
     static void tearDownAll() {
         SelenideLogger.removeListener("allure");
     }
-    //2.1 Регистрация с валидными данными
+
     @Test
+    @DisplayName("2.1 Регистрация с валидными данными")
     void successRegistration() {
         var registrationPage = new RegistrationPage();
         var userInfo = DataHelper.generateNewUser();
@@ -40,8 +40,8 @@ public class RegistrationPageTest {
         closeWebDriver();
     }
 
-    // 2.2 Уже зарегистрированный емайл
     @Test
+    @DisplayName("2.2 Уже зарегистрированный емайл")
     void alertAlreadyRegistered() {
         var registrationPage = new RegistrationPage();
         var userInfo = DataHelper.oldUser();
@@ -51,8 +51,8 @@ public class RegistrationPageTest {
         assertEquals(expected, actual);
     }
 
-    //2.3 Отсутствие галочки "С условиями..."
     @Test
+    @DisplayName("2.3 Отсутствие галочки \"С условиями...\"")
     void agreeCheckbox() {
         var registrationPage = new RegistrationPage();
         registrationPage.agreeCheckBoxClick();
@@ -61,20 +61,19 @@ public class RegistrationPageTest {
         $("#submit_register").shouldBe(visible);
     }
 
-    //2.4.1 Валидация поля имя и телефон
     @Test
-    void invalidNamee() {
+    @DisplayName("2.4.1 Валидация поля имя и телефон")
+    void invalidName() {
         var registrationPage = new RegistrationPage();
         String name = "123!.";
         registrationPage.inputName(name);
         String expected = "";
         String actual = $("#input-firstname").getText().trim();
         assertEquals(expected, actual);
-
     }
 
-    //2.4.2 Валидация поля телефон
     @Test
+    @DisplayName("2.4.2 Валидация поля телефон")
     void invalidPhone() {
         var registrationPage = new RegistrationPage();
         String phone = "qwerty,.фыва";
@@ -84,22 +83,15 @@ public class RegistrationPageTest {
         assertEquals(expected, actual);
     }
 
-    // 2.5 Валидация поля емайл (доработать)
-    @Test
-    void invalidEmail() {
+    // (доработать)
+    @ParameterizedTest
+    @DisplayName("2.5 Валидация поля емайл")
+    @CsvSource({
+            "i@ya.", "@ya.ru", "iya.ru", ".ru", "", "test"
+    })
+    void invalidEmail(String email) {
         var registrationPage = new RegistrationPage();
         String password = "123456";
-        String email = "i@ya.";
-        registrationPage.invalidEmail(email, password);
-        email = "@ya.ru";
-        registrationPage.invalidEmail(email, password);
-        email = "iya.ru";
-        registrationPage.invalidEmail(email, password);
-        email = ".ru";
-        registrationPage.invalidEmail(email, password);
-        email = "";
-        registrationPage.invalidEmail(email, password);
-        email = "test";
         registrationPage.invalidEmail(email, password);
     }
 

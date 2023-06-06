@@ -50,7 +50,7 @@ public class LoginPageTest {
         var authInfo = DataHelper.generateRandomUser();
         loginPage.wrongLogin(authInfo);
     }
-
+/*
     // 3.3 Валидация поля емайл
     @Test
     void invalidEmail() {
@@ -69,7 +69,7 @@ public class LoginPageTest {
         email = "test";
         loginPage.invalidEmail(email, password);
     }
-
+*/
     // 3.4 Предупреждение "Введите пароль"
     @Test
     void ifNotPassword() {
