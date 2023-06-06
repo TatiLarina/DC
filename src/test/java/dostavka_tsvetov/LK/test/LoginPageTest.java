@@ -2,7 +2,7 @@ package dostavka_tsvetov.LK.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
-import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.data.DataHelper;
 import dostavka_tsvetov.LK.page.LoginPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;

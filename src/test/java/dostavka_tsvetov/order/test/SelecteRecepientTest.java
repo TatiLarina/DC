@@ -1,6 +1,6 @@
 package dostavka_tsvetov.order.test;
 
-import dostavka_tsvetov.order.data.DataHelper;
+import dostavka_tsvetov.data.DataHelper;
 import dostavka_tsvetov.order.page.MainPage;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

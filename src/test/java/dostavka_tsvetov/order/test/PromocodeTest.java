@@ -2,14 +2,13 @@ package dostavka_tsvetov.order.test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import dostavka_tsvetov.order.data.DataHelper;
+import dostavka_tsvetov.data.DataHelper;
 import dostavka_tsvetov.order.page.MainPage;
 import dostavka_tsvetov.order.page.OrderPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 // 2 Применить промокод
@@ -22,7 +21,7 @@ public class PromocodeTest {
         DataHelper.openMainPage();
         var mainPage = new MainPage();
         mainPage.addToCart(1);
-        open("https://www.dostavka-tsvetov.com/index.php?route=checkout/simple");
+        DataHelper.openOrderPage();
         Configuration.timeout = 15_000;
     }
 

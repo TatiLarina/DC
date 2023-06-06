@@ -1,7 +1,7 @@
 package dostavka_tsvetov.LK.test;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.data.DataHelper;
 import dostavka_tsvetov.LK.page.ForgottenPasswordPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;

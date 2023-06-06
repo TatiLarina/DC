@@ -1,7 +1,7 @@
 package dostavka_tsvetov.LK.page;
 
 import com.codeborne.selenide.SelenideElement;
-import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -10,15 +10,15 @@ import static com.codeborne.selenide.Selenide.$;
 public class RegistrationPage {
 
     // Элементы страницы
-    private SelenideElement nameField = $("#input-firstname");
-    private SelenideElement phoneField = $("#input-telephone");
-    private SelenideElement emailField = $("#input-email");
-    private SelenideElement passwordField = $("#input-password");
-    private SelenideElement repeatPassField = $("#input-confirm");
-    private SelenideElement agreeCheckbox = $("#agree_checkbox");
-    private SelenideElement registerButton = $("#submit_register");
-    private SelenideElement alertWarning = $(".alert_lk.active");
-    private SelenideElement warningEmail = $(".warning_div.email_pattern");
+    private final SelenideElement nameField = $("#input-firstname");
+    private final SelenideElement phoneField = $("#input-telephone");
+    private final SelenideElement emailField = $("#input-email");
+    private final SelenideElement passwordField = $("#input-password");
+    private final SelenideElement repeatPassField = $("#input-confirm");
+    private final SelenideElement agreeCheckbox = $("#agree_checkbox");
+    private final SelenideElement registerButton = $("#submit_register");
+    private final SelenideElement alertWarning = $(".alert_lk.active");
+    private final SelenideElement warningEmail = $(".warning_div.email_pattern");
     public RegistrationPage() {
         $("#account").shouldBe(visible);
     }

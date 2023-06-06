@@ -1,7 +1,7 @@
 package dostavka_tsvetov.LK.page;
 
 import com.codeborne.selenide.SelenideElement;
-import dostavka_tsvetov.LK.data.DataHelper;
+import dostavka_tsvetov.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -10,16 +10,16 @@ import static com.codeborne.selenide.Selenide.$;
 public class LoginPage {
 
     // Элементы страницы
-    private SelenideElement emailField = $("#input-email");
-    private SelenideElement passwordField = $("#input-password");
-    private SelenideElement loginButton = $(".lk__button__black");
-    private SelenideElement alertWrongLogin = $(".alert_lk__p");
+    private final SelenideElement emailField = $("#input-email");
+    private final SelenideElement passwordField = $("#input-password");
+    private final SelenideElement loginButton = $(".lk__button__black");
+    private final SelenideElement alertWrongLogin = $(".alert_lk__p");
 
-    private SelenideElement warningEmail = $(".warning_div.email_pattern");
-    private SelenideElement warningPassword = $(".warning_div.password");
-    private SelenideElement registrationButton = $(".lk__button__white");
+    private final SelenideElement warningEmail = $(".warning_div.email_pattern");
+    private final SelenideElement warningPassword = $(".warning_div.password");
+    private final SelenideElement registrationButton = $(".lk__button__white");
 
-    private SelenideElement forgetPasswordButton = $(".lk__button__href");
+    private final SelenideElement forgetPasswordButton = $(".lk__button__href");
 
     // Метод авторизации с верным емайлом и паролем
     public DashboardPage validLogin(DataHelper.AuthInfo info) {
