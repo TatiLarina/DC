@@ -2,7 +2,7 @@
 
 1. Склонировать репозиторий
 ```
-git clone  https://github.com/TatiLarina/dostavka_tsvetov
+git clone  https://github.com/TatiLarina/DC
 ```
 2. Запустить тесты:
 ```
